@@ -2,7 +2,7 @@ import React from 'react';
 import Constants from 'expo-constants';
 import { Feather as Icon } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import { SvgUri} from 'react-native-svg';
 
@@ -18,7 +18,7 @@ const Points = () => {
   }
 
    return (
-      <>
+      <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.container}>
           <TouchableOpacity onPress={handleNavigateBack}>
             <Icon name="arrow-left" size={20} color="#34cb79" />
@@ -61,7 +61,7 @@ const Points = () => {
             contentContainerStyle={{ paddingHorizontal: 20 }}
           >
             <TouchableOpacity style={styles.item} onPress={() => {}}>
-              <SvgUri width={42} height={42} uri="exp://md-cua.anonymous.mobile.exp.direct:80/uploads/lampadas.svg"/>
+              <SvgUri width={42} height={42} uri=""/>
               <Text style={styles.itemTitle}>Lâmpadas</Text>
             </TouchableOpacity>
 
@@ -91,7 +91,7 @@ const Points = () => {
             </TouchableOpacity>
           </ScrollView>
         </View>
-      </>
+      </SafeAreaView>
    )
 };
 
@@ -99,7 +99,6 @@ const styles = StyleSheet.create({
    container: {
      flex: 1,
      paddingHorizontal: 32,
-     paddingTop: 20 + Constants.statusBarHeight,
    },
  
    title: {
